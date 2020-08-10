@@ -1,7 +1,7 @@
 package com.demo.service.impl;
 
-import com.alibaba.dubbo.config.annotation.Service;
 import com.demo.service.HelloService;
+import org.apache.dubbo.config.annotation.Service;
 import org.springframework.stereotype.Component;
 
 /**
@@ -14,6 +14,7 @@ import org.springframework.stereotype.Component;
 public class HelloServiceImpl implements HelloService {
     @Override
     public String sayHello(String name) {
+        System.out.println("hello " + name);
         return "hello " + name;
     }
 }

@@ -1,7 +1,32 @@
 server:
   port: 8083
+  servlet:
+    # 项目访问路径
+    context-path: /provider/
+#spring:
+#  dubbo:
+#    application:
+#      name: dubbo-provider
+#    registry:
+#      protocol: zookeeper
 
-spring:
-  dubbo:
-    application:
-      name: dubbo-provider
+dubbo:
+  application:
+    name: service-provider #注册服务的名称
+  registry:
+    address: zookeeper://127.0.0.1:2181 #zookeeper注册中心地址
+    protocol: zookeeper #注册中心支持的协议 包括 dubbo,multicast,zookeeper,redis 默认是zookeeper
+    check:  false
+    subscribe: false # 不订阅服务
+    username: admin
+    password: 123
+  registry
+  protocol:
+    name: dubbo
+    port: 20880
+  provider:
+    retries: 1
+    delay: -1
+
+#  scan:
+#    base-packages: com.demo.service.impl
