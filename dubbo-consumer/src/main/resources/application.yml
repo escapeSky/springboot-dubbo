@@ -1,0 +1,20 @@
+server:
+  port: 8082
+  servlet:
+    #项目范围路径
+    context-path: /consumer/
+
+dubbo:
+  application:
+    name: service-consumer
+  registry:
+    address: zookeeper://127.0.0.1:2181
+    protocol: zookeeper
+    register: false #服务不注册
+  consumer:
+    timeout: 3000
+
+spring:
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
